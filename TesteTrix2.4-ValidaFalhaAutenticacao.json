@@ -1,0 +1,38 @@
+{
+  "trigger_url": "https://api.runscope.com/radar/de3d4003-9336-4ee3-a20b-fafb47bbbb7b/trigger", 
+  "name": "Teste Trix - Valida Falha Autenticacao (2.4)", 
+  "version": "1.0", 
+  "exported_at": 1460084105, 
+  "steps": [
+    {
+      "body": "", 
+      "form": {}, 
+      "url": "http://rc.trixlog.com/login?login=teste99&password=senhasenha", 
+      "variables": [], 
+      "args": {}, 
+      "step_type": "request", 
+      "auth": {}, 
+      "fragment": "", 
+      "note": "POST para /login com usu\u00e1rio inv\u00e1lido.", 
+      "headers": {}, 
+      "assertions": [
+        {
+          "comparison": "equal_number", 
+          "value": "401", 
+          "source": "response_status"
+        }, 
+        {
+          "comparison": "equal", 
+          "value": "Usu\ufffdrio ou senha inv\ufffdlidos", 
+          "source": "response_text"
+        }
+      ], 
+      "scripts": [
+        ""
+      ], 
+      "data": "", 
+      "method": "POST"
+    }
+  ], 
+  "description": "2.4 Valida\u00e7\u00e3o da tentativa falha de autentica\u00e7\u00e3o do usu\u00e1rio criado em *1.1"
+}

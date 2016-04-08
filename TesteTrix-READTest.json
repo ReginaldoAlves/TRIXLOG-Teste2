@@ -1,0 +1,83 @@
+{
+  "trigger_url": "https://api.runscope.com/radar/549b78e6-7e30-4639-8eab-f7433ec84e94/trigger", 
+  "name": "Teste Trix - READ Test", 
+  "version": "1.0", 
+  "exported_at": 1460084128, 
+  "steps": [
+    {
+      "body": "", 
+      "form": {}, 
+      "url": "http://rc.trixlog.com/login?login=reginaldoalvesrca@gmail.com&password=4RmN2Y", 
+      "variables": [
+        {
+          "source": "response_text", 
+          "name": "url_token"
+        }
+      ], 
+      "args": {}, 
+      "step_type": "request", 
+      "auth": {}, 
+      "note": "POST para /login recebendo uma URL com token", 
+      "headers": {}, 
+      "assertions": [
+        {
+          "comparison": "equal_number", 
+          "value": 200, 
+          "source": "response_status"
+        }
+      ], 
+      "scripts": [], 
+      "fragment": "", 
+      "data": "", 
+      "method": "POST"
+    }, 
+    {
+      "url": "{{url_token}}", 
+      "variables": [
+        {
+          "source": "response_headers", 
+          "property": "Set-Cookie", 
+          "name": "Cookie"
+        }
+      ], 
+      "step_type": "request", 
+      "auth": {}, 
+      "fragment": "", 
+      "note": "GET para a URL com token recebendo um cookie", 
+      "headers": {}, 
+      "assertions": [
+        {
+          "comparison": "equal_number", 
+          "value": "302", 
+          "source": "response_status"
+        }
+      ], 
+      "scripts": [], 
+      "method": "GET"
+    }, 
+    {
+      "url": "http://rc.trixlog.com:8025/trix/user", 
+      "variables": [], 
+      "step_type": "request", 
+      "auth": {}, 
+      "fragment": "", 
+      "note": "GET para :8025/trix/user. READ de usu\u00e1rios", 
+      "headers": {
+        "Cookie": "{{Cookie}}", 
+        "Content-Type": [
+          "application/json"
+        ]
+      }, 
+      "assertions": [
+        {
+          "comparison": "equal_number", 
+          "value": "200", 
+          "source": "response_status"
+        }
+      ], 
+      "scripts": [], 
+      "method": "GET"
+    }
+  ], 
+  "description": "Traz os usu\u00e1rios j\u00e1 criados."
+}
