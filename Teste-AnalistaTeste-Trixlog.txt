@@ -1,0 +1,29 @@
+Vaga Analista de Teste - Automação de testes
+
+Automação com JMeter e Runscope.
+
+O objetivo do desafio é criar um processo de automação dos testes de API de uma aplicação web utilizando o JMeter e Runscope com git/github para versionamento.
+Nota: Exportar os testes do Runscope no formato JSON.
+
+- Acesso
+URL: http://rc.trixlog.com/login
+usuário: reginaldoalvesrca@gmail.com
+senha: 4RmN2Y
+
+-Ferramentas
+JMeter - https://jmeter.apache.org/
+Runscope - https://www.runscope.com/
+
+
+1. Implementar validação do CRUD de usuário para os seguintes cenários:
+	1.1 Criação de um novo usuário preenchendo os campos obrigatórios do formulário;
+	1.2 Validação da criação do usuário criado em *1.1
+	1.3 Criação de um novo usuário com o login já presente - Não deve ser criado;
+	1.4 Criação de um novo usuário sem o preenchimento do email - Não deve ser criado;
+	1.5 Edição do usuário criado em *1.1
+	1.6 Validação da edição do usuário criado em *1.1
+2. Implementar validação da autenticação do usuário
+	2.1 Validação de autenticação do usuário criado em *1.1   
+	2.2 Remoção do usuário criado em *1.1
+	2.3 Validação da remoção do usuário criado em *1.1
+	2.4 Validação da tentativa falha de autenticação do usuário criado em *1.1
